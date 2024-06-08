@@ -1,13 +1,13 @@
 "use client";
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { fabric } from "fabric";
 
 const MemeMaker: React.FC = () => {
   const canvasRef = useRef<fabric.Canvas | null>(null);
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Backspace") {
-        const activeObject = canvasRef.current?.getActiveObject();
+      if (e.key === "Backspace" || e.key === "Delete") {
+        const activeObject = canvasRef.current?.getActiveObject(); 
         if (activeObject) {
           canvasRef.current?.remove(activeObject);
         }
